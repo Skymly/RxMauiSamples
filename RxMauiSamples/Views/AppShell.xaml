@@ -1,0 +1,22 @@
+<local:ReactiveFlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rxui="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
+             x:Class="RxMauiSamples.Views.AppShell"
+             xmlns:local="clr-namespace:RxMauiSamples"
+             xmlns:vm="clr-namespace:RxMauiSamples.ViewModels"
+             x:DataType="vm:AppShellViewModel"
+             x:TypeArguments="vm:AppShellViewModel" Title="{Binding Title}"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+    <FlyoutPage.Flyout>
+        <ContentPage Title="{Binding Title,FallbackValue='Default Title'}">
+            <StackLayout Margin="10 30 10 10">
+                <Button Text="About"/>
+                <Button Text="Test"/>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <rxui:RoutedViewHost/>
+    </FlyoutPage.Detail>
+</local:ReactiveFlyoutPage>
